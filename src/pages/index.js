@@ -1,150 +1,296 @@
-import * as React from "react"
+import React, { useEffect, useState } from 'react';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import styled from 'styled-components';
+import gsap from 'gsap';
+import CodeIcon from '../assets/svg/CodeIcon';
+import Divider from '../assets/svg/Divider';
+import ProjectCard from '../components/ProjectCard';
+import Typer from '../components/Typer';
+import text from '../assets/text/text';
+import WhatIDoStyles from '../styles/WhatIDoStyles';
+import CodeEditorStyles from '../styles/CodeEditorStyles';
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: "300",
-  fontSize: "24px",
-  maxWidth: "560px",
-}
+const IndexPage = ({ data }) => {
+  useEffect(() => {
+    gsap.from('.jumbotron_heading2', {
+      opacity: 0,
+      y: -100,
+      duration: 1,
+      delay: 0.75,
+    });
+  }, []);
 
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: "16px",
-  verticalAlign: "5%",
-}
+  const [codeText, setCodeText] = useState('Please click on an image below');
 
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
+  //These variables are used for the typer component
+  const { javascript, react, gatsby, node, jamstack, netlify } = text.typerText;
 
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: "14px",
-}
-
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
-// data
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#000000",
-  },
-]
-
-// markup
-const IndexPage = () => {
   return (
-    <main style={pageStyles}>
-      <title>Home Page</title>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
-        <span role="img" aria-label="Party popper emojis">
-          🎉🎉🎉
-        </span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time.{" "}
-        <span role="img" aria-label="Sunglasses smiley emoji">
-          😎
-        </span>
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
-          </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
-    </main>
-  )
-}
+    <>
+      <Jumbotron>
+        <CodeIcon />
+        <h2 className='jumbotron_heading2'>
+          Hi ✌ I'm Jesse, a self taught front-end web developer who loves
+          working with React
+        </h2>
+      </Jumbotron>
+      <WhatIDoStyles>
+        <Divider color='#0e141b' />
+        <div className='whatido_about_wrapper'>
+          <div>
+            <h2>What I Do</h2>
+            <p>
+              Simply put, I love building front end’s. I’ve been teaching myself
+              front end development over the past two years and enjoy every
+              minute of it. I started out using Codeacademy and migrated over to
+              Treehouse. Once I learned the basics, I started building things
+              and looking into different technologies as needed. Here is some of
+              the tech that I picked up along the way and love:
+            </p>
+          </div>
+          <div>
+            <CodeEditorStyles>
+              <code>
+                <div className='dot1' />
+                <div className='dot2' />
+                <div className='dot3' />
+                <Typer text={codeText} />
+              </code>
+            </CodeEditorStyles>
+          </div>
+        </div>
+        <div className='whatido_images_wrapper'>
+          <div onClick={() => setCodeText(javascript)}>
+            <Img fluid={data.jsImage.childImageSharp.fluid} />
+          </div>
+          <div onClick={() => setCodeText(react)}>
+            <Img fluid={data.reactImage.childImageSharp.fluid} />
+          </div>
+          <div onClick={() => setCodeText(gatsby)}>
+            <Img fluid={data.gatsbyImage.childImageSharp.fluid} />
+          </div>
+          <div onClick={() => setCodeText(node)}>
+            <Img fluid={data.nodeImage.childImageSharp.fluid} />
+          </div>
+          <div onClick={() => setCodeText(jamstack)}>
+            <Img fluid={data.jamstackImage.childImageSharp.fluid} />
+          </div>
+          <div onClick={() => setCodeText(netlify)}>
+            <Img fluid={data.netlifyImage.childImageSharp.fluid} />
+          </div>
+        </div>
+      </WhatIDoStyles>
+      <ThingsIveBuilt>
+        <h2 className='thingsivebuilt_heading'>Things I've Built</h2>
+        <ProjectCard />
+      </ThingsIveBuilt>
+      <Inspire>
+        <div className='inspire_wrapper'>
+          <h2>Stuff That Inspires Me</h2>
+          <div className='inspire_image_wrapper'>
+            <Img fluid={data.syntaxImage.childImageSharp.fluid} />
+            <Img fluid={data.wesBosImage.childImageSharp.fluid} />
+            <Img fluid={data.jasonImage.childImageSharp.fluid} />
+            <Img fluid={data.fireshipImage.childImageSharp.fluid} />
+            <Img fluid={data.indieHackersImage.childImageSharp.fluid} />
+            <Img fluid={data.traversyMediaImage.childImageSharp.fluid} />
+          </div>
+        </div>
+      </Inspire>
+    </>
+  );
+};
 
-export default IndexPage
+const Jumbotron = styled.section`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  place-items: center;
+  margin-bottom: 75px;
+  svg {
+    max-width: 100%;
+  }
+  h2 {
+    font-size: 35px;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 2fr;
+    gap: 15px;
+    h2 {
+      font-size: 25px;
+    }
+  }
+`;
+
+const ThingsIveBuilt = styled.section`
+  margin: 50px 0;
+  position: relative;
+  .thingsivebuilt_heading {
+    margin-bottom: 50px;
+  }
+`;
+
+const Inspire = styled.section`
+  padding: 50px 0;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  color: black;
+  line-height: 1.75rem;
+  background-color: #fff;
+  position: relative;
+  .inspire_wrapper {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 1rem;
+    h2 {
+      margin-bottom: 50px;
+    }
+  }
+  .inspire_image_wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(auto, 200px));
+    justify-content: center;
+    place-items: center;
+    gap: 3rem;
+    padding: 0 1rem;
+    margin: 0 auto;
+    max-width: 1000px;
+    div {
+      width: 100%;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+`;
+
+export const query = graphql`
+  query {
+    jsImage: file(relativePath: { eq: "js.png" }) {
+      id
+      childImageSharp {
+        fluid(maxWidth: 150) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    reactImage: file(relativePath: { eq: "react.png" }) {
+      id
+      childImageSharp {
+        fluid(maxWidth: 150) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    gatsbyImage: file(relativePath: { eq: "gatsby.png" }) {
+      id
+      childImageSharp {
+        fluid(maxWidth: 150) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    nodeImage: file(relativePath: { eq: "node.png" }) {
+      id
+      childImageSharp {
+        fluid(maxWidth: 150) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    jamstackImage: file(relativePath: { eq: "jamstack.png" }) {
+      id
+      childImageSharp {
+        fluid(maxWidth: 150) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    netlifyImage: file(relativePath: { eq: "netlify.png" }) {
+      id
+      childImageSharp {
+        fluid(maxWidth: 150) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    fflImage: file(relativePath: { eq: "fantasy_football.png" }) {
+      id
+      childImageSharp {
+        fluid(maxWidth: 150) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    campifyImage: file(relativePath: { eq: "campify.png" }) {
+      id
+      childImageSharp {
+        fluid(maxWidth: 150) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    personalTrainingImage: file(relativePath: { eq: "personal_training.png" }) {
+      id
+      childImageSharp {
+        fluid(maxWidth: 150) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    syntaxImage: file(relativePath: { eq: "syntax.png" }) {
+      id
+      childImageSharp {
+        fluid(maxWidth: 250) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    wesBosImage: file(relativePath: { eq: "wesboslogo.png" }) {
+      id
+      childImageSharp {
+        fluid(maxWidth: 250) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    jasonImage: file(relativePath: { eq: "jason.png" }) {
+      id
+      childImageSharp {
+        fluid(maxWidth: 250) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    fireshipImage: file(relativePath: { eq: "fireship.png" }) {
+      id
+      childImageSharp {
+        fluid(maxWidth: 250) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    indieHackersImage: file(relativePath: { eq: "indie_hackers.png" }) {
+      id
+      childImageSharp {
+        fluid(maxWidth: 250) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    traversyMediaImage: file(relativePath: { eq: "traversy_media.png" }) {
+      id
+      childImageSharp {
+        fluid(maxWidth: 250) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
+
+export default IndexPage;
