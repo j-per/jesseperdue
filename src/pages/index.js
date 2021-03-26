@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import gsap from 'gsap';
 import CodeIcon from '../assets/svg/CodeIcon';
 import Divider from '../assets/svg/Divider';
 import ProjectCard from '../components/ProjectCard';
+import BlogPreview from '../components/BlogPreview';
 import Typer from '../components/Typer';
 import text from '../assets/text/text';
 import WhatIDoStyles from '../styles/WhatIDoStyles';
@@ -85,19 +86,32 @@ const IndexPage = ({ data }) => {
         <h2 className='thingsivebuilt_heading'>Things I've Built</h2>
         <ProjectCard />
       </ThingsIveBuilt>
-      <Inspire>
+      {/* <Inspire>
         <div className='inspire_wrapper'>
           <h2>Stuff That Inspires Me</h2>
           <div className='inspire_image_wrapper'>
-            <Img fluid={data.syntaxImage.childImageSharp.fluid} />
-            <Img fluid={data.wesBosImage.childImageSharp.fluid} />
-            <Img fluid={data.jasonImage.childImageSharp.fluid} />
-            <Img fluid={data.fireshipImage.childImageSharp.fluid} />
-            <Img fluid={data.indieHackersImage.childImageSharp.fluid} />
-            <Img fluid={data.traversyMediaImage.childImageSharp.fluid} />
+            <a href='https://syntax.fm'>
+              <Img fluid={data.syntaxImage.childImageSharp.fluid} />
+            </a>
+            <a href='https://wesbos.com/'>
+              <Img fluid={data.wesBosImage.childImageSharp.fluid} />
+            </a>
+            <a href='https://www.learnwithjason.dev/'>
+              <Img fluid={data.jasonImage.childImageSharp.fluid} />
+            </a>
+            <a href='https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA'>
+              <Img fluid={data.fireshipImage.childImageSharp.fluid} />
+            </a>
+            <a href='https://www.indiehackers.com/podcasts'>
+              <Img fluid={data.indieHackersImage.childImageSharp.fluid} />
+            </a>
+            <a href='https://www.youtube.com/user/TechGuyWeb'>
+              <Img fluid={data.traversyMediaImage.childImageSharp.fluid} />
+            </a>
           </div>
         </div>
-      </Inspire>
+      </Inspire> */}
+      <BlogPreview />
     </>
   );
 };
@@ -131,6 +145,15 @@ const ThingsIveBuilt = styled.section`
   }
 `;
 
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(20deg);
+  }
+`;
+
 const Inspire = styled.section`
   padding: 50px 0;
   width: 100vw;
@@ -151,11 +174,20 @@ const Inspire = styled.section`
     }
   }
   .inspire_image_wrapper {
+    a {
+      transition: 1000ms ease;
+      width: 100%;
+
+      &:hover {
+        transform: rotate(10deg);
+        animation: ${rotate} 500ms infinite alternate-reverse;
+      }
+    }
     display: grid;
     grid-template-columns: repeat(3, minmax(auto, 200px));
     justify-content: center;
     place-items: center;
-    gap: 3rem;
+    gap: 2rem;
     padding: 0 1rem;
     margin: 0 auto;
     max-width: 1000px;

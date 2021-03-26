@@ -25,15 +25,6 @@ const GlobalStyles = createGlobalStyle`
     padding: 0 2rem;
     border: transparent 2px solid;
   }
-  .full-width {
-    left: 50%;
-	margin-left: -50vw;
-	margin-right: -50vw;
-	max-width: 100vw;
-	position: relative;
-	right: 50%;
-	width: 100vw;
-  }
 `;
 
 export default GlobalStyles;

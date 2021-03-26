@@ -12,8 +12,8 @@ const ProjectCard = () => {
         <div className='overlay'>
           <p>
             This was a fun side project I worked on for my fantasy football
-            league. It was built with GatsbyJS and styled with Tailwind CSS. The
-            content is being pulled from the Contentful CMS using GraphQL.
+            league. It was built with GatsbyJS and styled with Tailwind CSS .
+            The content is being pulled from the Contentful CMS using GraphQL.
           </p>
           <button>
             <a href='https://areasontodrink.com'>Visit Site</a>
@@ -26,7 +26,8 @@ const ProjectCard = () => {
           <p>
             This is a full stack app that I am currently working on. Since my
             family enjoys camping, the app scans booked campsites and sends the
-            user a text if a cancellation takes place.
+            user a text if a cancellation takes place. I'm building it using
+            NodeJS.
           </p>
           <button>
             <a href='https://github.com/j-per'>Visit Site</a>

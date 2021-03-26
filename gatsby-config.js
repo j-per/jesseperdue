@@ -16,5 +16,11 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        url: `http://34.217.223.189/graphql`,
+      },
+    },
   ],
 };
