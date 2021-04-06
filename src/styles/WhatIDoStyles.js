@@ -8,7 +8,6 @@ const WhatIDoStyles = styled.section`
   margin-left: -50vw;
   margin-right: -50vw;
   color: black;
-  line-height: 1.75rem;
   background-color: #fff;
   position: relative;
   .whatido_about_wrapper {

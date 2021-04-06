@@ -21,22 +21,22 @@ const Navigation = () => {
 
   return (
     <>
-      <DesktopNav className='navigation_desktop '>
+      <DesktopNavStyles className='navigation_desktop '>
         <h2>
           <Link to='/'>Jesse Perdue</Link>
         </h2>
         <ul>
           <li>
-            <Link to='/'>Posts</Link>
+            <Link to='/'>Projects</Link>
           </li>
           <li>
-            <Link to='/'>Projects</Link>
+            <Link to='/'>Posts</Link>
           </li>
           <li>
             <Link to='/'>Contact</Link>
           </li>
         </ul>
-      </DesktopNav>
+      </DesktopNavStyles>
       <MobileNavStyle>
         {click && <Overlay closeMobileMenu={closeMobileMenu} />}
         <h2>
@@ -52,19 +52,16 @@ const Navigation = () => {
   );
 };
 
-const DesktopNav = styled.nav`
+const DesktopNavStyles = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
-  h2 {
-    a {
-      color: var(--green);
-      font-size: 25px;
-      transition: 500ms;
-      &:hover {
-        color: var(--purple);
-      }
+  a {
+    color: var(--green);
+    transition: 500ms;
+    &:hover {
+      color: var(--purple);
     }
   }
   ul {

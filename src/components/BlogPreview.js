@@ -12,6 +12,19 @@ const BlogPreview = () => {
             id
             content
             title
+            excerpt
+            slug
+            featuredImage {
+              node {
+                localFile {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -19,10 +32,15 @@ const BlogPreview = () => {
   `);
   return (
     <BlogPreviewStyles>
-      <h2>Recent Posts</h2>
+      <h2 className='blogpreview_heading'>Recent Posts</h2>
       <div>
         {data.allWpPost.edges.map((post) => (
-          <BlogCard title={post.node.title} />
+          <BlogCard
+            title={post.node.title}
+            excerpt={post.node.excerpt}
+            featuredImage={post.node.featuredImage.node.localFile}
+            slug={post.node.slug}
+          />
         ))}
       </div>
     </BlogPreviewStyles>
@@ -30,23 +48,17 @@ const BlogPreview = () => {
 };
 
 const BlogPreviewStyles = styled.section`
-  padding: 50px 0;
-  width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  color: black;
-  background-color: #fff;
-  position: relative;
-  h2 {
+  a {
+    color: white;
+  }
+  .blogpreview_heading {
     margin-bottom: 50px;
   }
   div {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1rem;
-    margin: 0 auto;
+    justify-content: center;
   }
 `;
 

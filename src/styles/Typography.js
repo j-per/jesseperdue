@@ -12,8 +12,7 @@ const Typography = createGlobalStyle`
         font-size: 40px;
     }
     h2 {
-        margin: 0;
-        font-size: 40px;
+        font-size: 30px;
     }
 `;
 
