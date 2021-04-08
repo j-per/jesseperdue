@@ -31,7 +31,7 @@ const BlogCardStyles = styled.article`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   &:hover .blogcard_readmore {
     transform: translateX(10px);
     color: var(--green);
@@ -40,7 +40,7 @@ const BlogCardStyles = styled.article`
   color: white;
   .blogcard_heading {
     padding: 0;
-    margin: 0;
+    margin: 20px 0 0 0;
     font-size: 1.2rem;
   }
   .blogcard_readmore {

@@ -6,6 +6,7 @@ const GlobalStyles = createGlobalStyle`
         --purple: #AA91FB;
         --red: #E23A3A;
         --blue: #14A1F0;
+        --gray: #9ca8b4;
     }
     body {
         background-color: #0E141B;

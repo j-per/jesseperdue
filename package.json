@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@fontsource/alata": "^4.2.1",
+    "@wordpress/block-library": "^2.29.1",
     "babel-plugin-styled-components": "^1.12.0",
     "gatsby": "^2.32.3",
     "gatsby-image": "^2.11.0",

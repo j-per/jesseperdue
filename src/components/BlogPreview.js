@@ -48,6 +48,7 @@ const BlogPreview = () => {
 };
 
 const BlogPreviewStyles = styled.section`
+  margin-bottom: 50px;
   a {
     color: white;
   }

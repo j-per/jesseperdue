@@ -5,6 +5,7 @@ import styled, { keyframes } from 'styled-components';
 import gsap from 'gsap';
 import CodeIcon from '../assets/svg/CodeIcon';
 import Divider from '../assets/svg/Divider';
+import Robot from '../assets/svg/Robot';
 import ProjectCard from '../components/ProjectCard';
 import BlogPreview from '../components/BlogPreview';
 import Typer from '../components/Typer';
@@ -83,6 +84,7 @@ const IndexPage = ({ data }) => {
         </div>
       </WhatIDoStyles>
       <ThingsIveBuilt>
+        {/* <Robot /> */}
         <h2 className='thingsivebuilt_heading'>Things I've Built</h2>
         <ProjectCard />
       </ThingsIveBuilt>
@@ -142,6 +144,13 @@ const ThingsIveBuilt = styled.section`
   position: relative;
   .thingsivebuilt_heading {
     margin-bottom: 50px;
+  }
+  svg {
+    max-width: 300px;
+    position: absolute;
+    top: 22px;
+    right: -50px;
+    transform: rotate(20deg);
   }
 `;
 

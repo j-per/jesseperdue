@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
 const Post = ({ data: { wpPost } }) => {
+  console.log(wpPost);
   const postMarkup = () => {
     return { __html: `${wpPost.content}` };
   };
@@ -16,6 +17,7 @@ const Post = ({ data: { wpPost } }) => {
         <AiOutlineArrowRight />
       </div>
       <h1>{wpPost.title}</h1>
+      <p className='poststyles_date'>{wpPost.date}</p>
       <div className='line' />
       <ContentStyles dangerouslySetInnerHTML={postMarkup()} />
     </PostStyles>
@@ -28,6 +30,7 @@ export const query = graphql`
       content
       id
       title
+      date(formatString: "DD MMMM, YYYY")
     }
   }
 `;
@@ -47,8 +50,9 @@ const PostStyles = styled.div`
       margin-right: 12px;
     }
   }
-  h1 {
-    margin-bottom: 50px;
+  .poststyles_date {
+    margin: 0 0 50px 0;
+    color: var(--gray);
   }
   .line {
     width: 100%;
@@ -64,7 +68,9 @@ const ContentStyles = styled.article`
     border-radius: 10px;
     width: auto;
     background: rgb(30, 38, 47);
+    overflow: auto;
   }
+
   figure {
     margin: 0;
   }
