@@ -26,6 +26,14 @@ const GlobalStyles = createGlobalStyle`
     padding: 0 2rem;
     border: transparent 2px solid;
   }
+  .ignorewidth {
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    position: relative;
+  }
 `;
 
 export default GlobalStyles;
