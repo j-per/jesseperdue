@@ -14,10 +14,8 @@ const BlogCard = ({ title, excerpt, featuredImage, slug, date }) => {
           className='blogcard_excerpt'
           dangerouslySetInnerHTML={{ __html: excerpt }}
         />
-        <div className='image_wrapper'>
-          <Img fluid={featuredImage.childImageSharp.fluid} />
-        </div>
         <p>{date}</p>
+        <Img fluid={featuredImage.childImageSharp.fluid} />
       </Link>
     </BlogCardStyles>
   );
@@ -27,9 +25,12 @@ const BlogCardStyles = styled.article`
   border-radius: 10px;
   padding: 1rem;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  a {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
   &:hover .blogcard_readmore {
     transform: translateX(10px);
     color: var(--green);
@@ -51,12 +52,11 @@ const BlogCardStyles = styled.article`
   .blogcard_excerpt {
     margin: 0;
   }
-  .image_wrapper {
-    width: 100%;
-    height: 200px;
-  }
   .gatsby-image-wrapper {
     border-radius: 10px;
+    width: 100%;
+    height: 200px;
+    align-self: flex-end;
   }
 `;
 

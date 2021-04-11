@@ -34,7 +34,6 @@ const OverlayStyles = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   nav {
     ul {
       list-style: none;

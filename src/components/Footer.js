@@ -14,9 +14,13 @@ const Footer = () => {
         </div>
         <div className='footerstyles_links_wrapper'>
           <p>Links</p>
-          <Link to='/'>Blog</Link>
-          <Link to='/'>Github</Link>
-          <Link to='/'>Twitter</Link>
+          <Link to='/blog'>Blog</Link>
+          <a href='https://github.com/j-per' target='_blank' rel='noreferrer'
+          >Github</a>
+          <a href='https://twitter.com/jess90perdue' target='_blank' rel='noreferrer'
+          >Twitter</a>
+          <a href='https://twitter.com/jess90perdue' target='_blank' rel='noreferrer'
+          >Resume</a>
         </div>
       </div>
     </FooterStyles>

@@ -33,9 +33,10 @@ const IndexPage = ({ data }) => {
         <CodeIcon />
         <h2>
           Hi{' '}
-          <span role='img' aria-label='waving'>
+          <span role='img' aria-label='waving' className='headerstyles_waiving'>
             &#128075;
           </span>
+          {' '}
           I'm Jesse, a self taught front-end web developer who loves working
           with JavaScript and React
         </h2>

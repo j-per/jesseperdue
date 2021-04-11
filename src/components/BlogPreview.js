@@ -10,7 +10,6 @@ const BlogPreview = () => {
         edges {
           node {
             id
-            content
             title
             excerpt
             slug

@@ -4,10 +4,6 @@ import styled from 'styled-components';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
 const Post = ({ data: { wpPost } }) => {
-  console.log(wpPost);
-  const postMarkup = () => {
-    return { __html: `${wpPost.content}` };
-  };
   return (
     <PostStyles>
       <div className='poststyles_breadcrumb'>
@@ -19,7 +15,7 @@ const Post = ({ data: { wpPost } }) => {
       <h1>{wpPost.title}</h1>
       <p className='poststyles_date'>{wpPost.date}</p>
       <div className='line' />
-      <ContentStyles dangerouslySetInnerHTML={postMarkup()} />
+      <ContentStyles dangerouslySetInnerHTML={{__html: wpPost.content}} />
     </PostStyles>
   );
 };

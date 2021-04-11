@@ -5,7 +5,6 @@ import Typography from '../styles/Typography';
 import 'normalize.css';
 import Navigation from './Navigation';
 import Footer from './Footer';
-import '@wordpress/block-library/build-style/style.css';
 
 const LayoutWrapper = styled.div`
   max-width: 1000px;
