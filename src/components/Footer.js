@@ -5,11 +5,20 @@ import styled from 'styled-components';
 const Footer = () => {
   return (
     <FooterStyles className='ignorewidth'>
-    <div className='footerstyles_wrapper'>
-      <h2>
-        <Link to='/'>Jesse Perdue</Link>
-      </h2>
-    </div>
+      <div className='footerstyles_wrapper'>
+        <div className='footerstyles_heading_wrapper'>
+          <h2>
+            <Link to='/'>Jesse Perdue</Link>
+          </h2>
+          <p>Jesse Perdue © 2020 — Present</p>
+        </div>
+        <div className='footerstyles_links_wrapper'>
+          <p>Links</p>
+          <Link to='/'>Blog</Link>
+          <Link to='/'>Github</Link>
+          <Link to='/'>Twitter</Link>
+        </div>
+      </div>
     </FooterStyles>
   );
 };
@@ -20,9 +29,39 @@ const FooterStyles = styled.footer`
     max-width: 1000px;
     margin: 0 auto;
     padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    h2 {
+      margin: 0;
+    }
+    a {
+      color: var(--green);
+    }
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
   }
-  a {
-    color: var(--green);
+  .footerstyles_heading_wrapper {
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+  }
+  .footerstyles_links_wrapper {
+    p {
+      color: var(--grey);
+      text-decoration: underline;
+    }
+    a {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: white;
+      transition: 250ms ease-in-out;
+      &:hover {
+        color: var(--purple);
+      }
+    }
   }
 `;
 

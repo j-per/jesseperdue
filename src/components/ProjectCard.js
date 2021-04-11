@@ -6,7 +6,7 @@ import personalTraining from '../assets/images/personal_training.png';
 
 const ProjectCard = () => {
   return (
-    <ProjectCardWrapper>
+    <ProjectCardStyles>
       <div className='card_1'>
         <h2>A Reason to Drink FFL</h2>
         <div className='overlay'>
@@ -16,7 +16,13 @@ const ProjectCard = () => {
             The content is being pulled from the Contentful CMS using GraphQL.
           </p>
           <button>
-            <a href='https://areasontodrink.com'>Visit Site</a>
+            <a
+              href='https://areasontodrink.com'
+              target='_blank'
+              rel='noreferrer'
+            >
+              Visit Site
+            </a>
           </button>
         </div>
       </div>
@@ -30,7 +36,9 @@ const ProjectCard = () => {
             NodeJS.
           </p>
           <button>
-            <a href='https://github.com/j-per'>Visit Site</a>
+            <a href='https://github.com/j-per' target='_blank' rel='noreferrer'>
+              Visit Site
+            </a>
           </button>
         </div>
       </div>
@@ -39,18 +47,20 @@ const ProjectCard = () => {
         <div className='overlay'>
           <p>
             I built this site for a personal trainer. It was built using
-            WordPress.
+            WordPress and Elementor.
           </p>
           <button>
-            <a href='https://coreycpt.com/'>Visit Site</a>
+            <a href='https://coreycpt.com/' target='_blank' rel='noreferrer'>
+              Visit Site
+            </a>
           </button>
         </div>
       </div>
-    </ProjectCardWrapper>
+    </ProjectCardStyles>
   );
 };
 
-const ProjectCardWrapper = styled.div`
+const ProjectCardStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;

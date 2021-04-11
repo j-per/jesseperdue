@@ -4,10 +4,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { BiRightArrowAlt } from 'react-icons/bi';
 
-const BlogCard = ({ title, excerpt, featuredImage, slug }) => {
-  const excerptMarkup = () => {
-    return { __html: `${excerpt}` };
-  };
+const BlogCard = ({ title, excerpt, featuredImage, slug, date }) => {
   return (
     <BlogCardStyles>
       <Link to={`blog/${slug}`}>
@@ -15,11 +12,12 @@ const BlogCard = ({ title, excerpt, featuredImage, slug }) => {
         <BiRightArrowAlt className='blogcard_readmore' size='2em' />
         <div
           className='blogcard_excerpt'
-          dangerouslySetInnerHTML={excerptMarkup()}
+          dangerouslySetInnerHTML={{ __html: excerpt }}
         />
         <div className='image_wrapper'>
           <Img fluid={featuredImage.childImageSharp.fluid} />
         </div>
+        <p>{date}</p>
       </Link>
     </BlogCardStyles>
   );
@@ -31,7 +29,7 @@ const BlogCardStyles = styled.article`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   &:hover .blogcard_readmore {
     transform: translateX(10px);
     color: var(--green);

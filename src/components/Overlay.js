@@ -5,28 +5,25 @@ import { CgClose } from 'react-icons/cg';
 
 const Overlay = ({ closeMobileMenu }) => {
   return (
-    <OverlayWrapper>
+    <OverlayStyles>
       <nav>
-        <a onClick={closeMobileMenu}>
+        <div onClick={closeMobileMenu}>
           <CgClose size='1.5em' color='white' className='close_mobile_nav' />
-        </a>
+        </div>
         <ul>
           <li onClick={closeMobileMenu}>
-            <Link to='/'>Posts</Link>
-          </li>
-          <li onClick={closeMobileMenu}>
-            <Link to='/'>Projects</Link>
+            <Link to='/'>Blog</Link>
           </li>
           <li onClick={closeMobileMenu}>
             <Link to='/'>Contact</Link>
           </li>
         </ul>
       </nav>
-    </OverlayWrapper>
+    </OverlayStyles>
   );
 };
 
-const OverlayWrapper = styled.div`
+const OverlayStyles = styled.div`
   z-index: 10;
   height: 100vh;
   width: 100vw;

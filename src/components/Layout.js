@@ -10,7 +10,7 @@ import '@wordpress/block-library/build-style/style.css';
 const LayoutWrapper = styled.div`
   max-width: 1000px;
   margin: 0 auto;
-  padding: 1rem 1rem;
+  padding: 0 1rem;
 `;
 
 const Layout = ({ children }) => (

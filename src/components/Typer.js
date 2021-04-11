@@ -8,7 +8,7 @@ const Instruction = ({ text }) => {
     // Options for the Typed object
     const options = {
       strings: [text],
-      typeSpeed: 20,
+      typeSpeed: 10,
       showCursor: false,
     };
 

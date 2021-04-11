@@ -6,7 +6,7 @@ import BlogCard from './BlogCard';
 const BlogPreview = () => {
   const data = useStaticQuery(graphql`
     query {
-      allWpPost(limit: 3) {
+      allWpPost(limit: 3, sort: { fields: date, order: DESC }) {
         edges {
           node {
             id
@@ -14,6 +14,7 @@ const BlogPreview = () => {
             title
             excerpt
             slug
+            date(formatString: "MMMM DD, YYYY")
             featuredImage {
               node {
                 localFile {
@@ -40,6 +41,8 @@ const BlogPreview = () => {
             excerpt={post.node.excerpt}
             featuredImage={post.node.featuredImage.node.localFile}
             slug={post.node.slug}
+            date={post.node.date}
+            key={post.node.id}
           />
         ))}
       </div>

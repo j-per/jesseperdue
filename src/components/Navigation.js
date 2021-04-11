@@ -27,27 +27,22 @@ const Navigation = () => {
         </h2>
         <ul>
           <li>
-            <Link to='/'>Projects</Link>
-          </li>
-          <li>
-            <Link to='/blog'>Posts</Link>
+            <Link to='/blog'>Blog</Link>
           </li>
           <li>
             <Link to='/'>Contact</Link>
           </li>
         </ul>
       </DesktopNavStyles>
-      <MobileNavStyle>
+      <MobileNavStyles>
         {click && <Overlay closeMobileMenu={closeMobileMenu} />}
         <h2>
           <Link to='/'>Jesse Perdue</Link>
         </h2>
         <nav>
-          <a>
-            <CgMenuGridO onClick={handleClick} size='2em' color='white' />
-          </a>
+          <CgMenuGridO onClick={handleClick} size='2em' color='white' />
         </nav>
-      </MobileNavStyle>
+      </MobileNavStyles>
     </>
   );
 };
@@ -83,7 +78,7 @@ const DesktopNavStyles = styled.nav`
   }
 `;
 
-const MobileNavStyle = styled.nav`
+const MobileNavStyles = styled.nav`
   margin-bottom: 1rem;
   display: none;
   @media (max-width: 762px) {

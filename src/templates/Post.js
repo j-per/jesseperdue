@@ -30,12 +30,13 @@ export const query = graphql`
       content
       id
       title
-      date(formatString: "DD MMMM, YYYY")
+      date(formatString: "MMMM DD, YYYY")
     }
   }
 `;
 
 const PostStyles = styled.div`
+  margin-bottom: 50px;
   a {
     color: var(--blue);
   }

@@ -5,7 +5,6 @@ import styled, { keyframes } from 'styled-components';
 import gsap from 'gsap';
 import CodeIcon from '../assets/svg/CodeIcon';
 import Divider from '../assets/svg/Divider';
-import Robot from '../assets/svg/Robot';
 import ProjectCard from '../components/ProjectCard';
 import BlogPreview from '../components/BlogPreview';
 import Typer from '../components/Typer';
@@ -30,13 +29,17 @@ const IndexPage = ({ data }) => {
 
   return (
     <>
-      <Jumbotron>
+      <HeaderStyles>
         <CodeIcon />
-        <h2 className='jumbotron_heading2'>
-          Hi ✌ I'm Jesse, a self taught front-end web developer who loves
-          working with React
+        <h2>
+          Hi{' '}
+          <span role='img' aria-label='waving'>
+            &#128075;
+          </span>
+          I'm Jesse, a self taught front-end web developer who loves working
+          with JavaScript and React
         </h2>
-      </Jumbotron>
+      </HeaderStyles>
       <WhatIDoStyles>
         <Divider color='#0e141b' />
         <div className='whatido_about_wrapper'>
@@ -63,31 +66,54 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
         <div className='whatido_images_wrapper'>
-          <div onClick={() => setCodeText(javascript)}>
+          <div
+            onClick={() => setCodeText(javascript)}
+            onKeyDown={() => setCodeText(javascript)}
+            role='button'
+          >
             <Img fluid={data.jsImage.childImageSharp.fluid} />
           </div>
-          <div onClick={() => setCodeText(react)}>
+          <div
+            onClick={() => setCodeText(react)}
+            onKeyDown={() => setCodeText(react)}
+            role='button'
+          >
             <Img fluid={data.reactImage.childImageSharp.fluid} />
           </div>
-          <div onClick={() => setCodeText(gatsby)}>
+          <div
+            onClick={() => setCodeText(gatsby)}
+            onKeyDown={() => setCodeText(gatsby)}
+            role='button'
+          >
             <Img fluid={data.gatsbyImage.childImageSharp.fluid} />
           </div>
-          <div onClick={() => setCodeText(node)}>
+          <div
+            onClick={() => setCodeText(node)}
+            onKeyDown={() => setCodeText(node)}
+            role='button'
+          >
             <Img fluid={data.nodeImage.childImageSharp.fluid} />
           </div>
-          <div onClick={() => setCodeText(jamstack)}>
+          <div
+            onClick={() => setCodeText(jamstack)}
+            onKeyDown={() => setCodeText(jamstack)}
+            role='button'
+          >
             <Img fluid={data.jamstackImage.childImageSharp.fluid} />
           </div>
-          <div onClick={() => setCodeText(netlify)}>
+          <div
+            onClick={() => setCodeText(netlify)}
+            onKeyDown={() => setCodeText(netlify)}
+            role='button'
+          >
             <Img fluid={data.netlifyImage.childImageSharp.fluid} />
           </div>
         </div>
       </WhatIDoStyles>
-      <ThingsIveBuilt>
-        {/* <Robot /> */}
-        <h2 className='thingsivebuilt_heading'>Things I've Built</h2>
+      <ProjectStyles>
+        <h2 className='projects_heading'>Projects</h2>
         <ProjectCard />
-      </ThingsIveBuilt>
+      </ProjectStyles>
       {/* <Inspire>
         <div className='inspire_wrapper'>
           <h2>Stuff That Inspires Me</h2>
@@ -118,7 +144,7 @@ const IndexPage = ({ data }) => {
   );
 };
 
-const Jumbotron = styled.section`
+const HeaderStyles = styled.header`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 50px;
@@ -139,10 +165,10 @@ const Jumbotron = styled.section`
   }
 `;
 
-const ThingsIveBuilt = styled.section`
+const ProjectStyles = styled.section`
   margin: 50px 0;
   position: relative;
-  .thingsivebuilt_heading {
+  .projects_heading {
     margin-bottom: 50px;
   }
   svg {
