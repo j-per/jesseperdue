@@ -12,6 +12,8 @@ import text from '../assets/text/text';
 import WhatIDoStyles from '../styles/WhatIDoStyles';
 import CodeEditorStyles from '../styles/CodeEditorStyles';
 
+
+
 const IndexPage = ({ data }) => {
   useEffect(() => {
     gsap.from('.jumbotron_heading2', {
@@ -22,6 +24,7 @@ const IndexPage = ({ data }) => {
     });
   }, []);
 
+
   const [codeText, setCodeText] = useState('Please click on an image below');
 
   //These variables are used for the typer component
@@ -29,93 +32,93 @@ const IndexPage = ({ data }) => {
 
   return (
     <>
-      <HeaderStyles>
-        <CodeIcon />
-        <h2>
-          Hi{' '}
-          <span role='img' aria-label='waving' className='headerstyles_waiving'>
-            &#128075;
+    <HeaderStyles>
+      <CodeIcon />
+      <h2>
+        Hi{' '}
+        <span role='img' aria-label='waving' className='headerstyles_waiving'>
+          &#128075;
           </span>
-          {' '}
-          I'm Jesse, a self taught front-end web developer who loves working
+        {' '}
+        I'm Jesse, a self taught front-end web developer who loves working
           with JavaScript and React
         </h2>
-      </HeaderStyles>
-      <WhatIDoStyles>
-        <Divider color='#0e141b' />
-        <div className='whatido_about_wrapper'>
-          <div>
-            <h2>What I Do</h2>
-            <p>
-              Simply put, I love building front end’s. I’ve been teaching myself
+    </HeaderStyles>
+    <WhatIDoStyles>
+      <Divider color='#0e141b' />
+      <div className='whatido_about_wrapper'>
+        <div>
+          <h2>What I Do</h2>
+          <p>
+            Simply put, I love building front end’s. I’ve been teaching myself
               front end development over the past two years and enjoy every
               minute of it. I started out using Codeacademy and migrated over to
               Treehouse. Once I learned the basics, I started building things
               and looking into different technologies as needed. Here is some of
               the tech that I picked up along the way and love:
             </p>
-          </div>
-          <div>
-            <CodeEditorStyles>
-              <code>
-                <div className='dot1' />
-                <div className='dot2' />
-                <div className='dot3' />
-                <Typer text={codeText} />
-              </code>
-            </CodeEditorStyles>
-          </div>
         </div>
-        <div className='whatido_images_wrapper'>
-          <div
-            onClick={() => setCodeText(javascript)}
-            onKeyDown={() => setCodeText(javascript)}
-            role='button'
-          >
-            <Img fluid={data.jsImage.childImageSharp.fluid} />
-          </div>
-          <div
-            onClick={() => setCodeText(react)}
-            onKeyDown={() => setCodeText(react)}
-            role='button'
-          >
-            <Img fluid={data.reactImage.childImageSharp.fluid} />
-          </div>
-          <div
-            onClick={() => setCodeText(gatsby)}
-            onKeyDown={() => setCodeText(gatsby)}
-            role='button'
-          >
-            <Img fluid={data.gatsbyImage.childImageSharp.fluid} />
-          </div>
-          <div
-            onClick={() => setCodeText(node)}
-            onKeyDown={() => setCodeText(node)}
-            role='button'
-          >
-            <Img fluid={data.nodeImage.childImageSharp.fluid} />
-          </div>
-          <div
-            onClick={() => setCodeText(jamstack)}
-            onKeyDown={() => setCodeText(jamstack)}
-            role='button'
-          >
-            <Img fluid={data.jamstackImage.childImageSharp.fluid} />
-          </div>
-          <div
-            onClick={() => setCodeText(netlify)}
-            onKeyDown={() => setCodeText(netlify)}
-            role='button'
-          >
-            <Img fluid={data.netlifyImage.childImageSharp.fluid} />
-          </div>
+        <div>
+          <CodeEditorStyles>
+            <code>
+              <div className='dot1' />
+              <div className='dot2' />
+              <div className='dot3' />
+              <Typer text={codeText} />
+            </code>
+          </CodeEditorStyles>
         </div>
-      </WhatIDoStyles>
-      <ProjectStyles>
-        <h2 className='projects_heading'>Projects</h2>
-        <ProjectCard />
-      </ProjectStyles>
-      {/* <Inspire>
+      </div>
+      <div className='whatido_images_wrapper'>
+        <div
+          onClick={() => setCodeText(javascript)}
+          onKeyDown={() => setCodeText(javascript)}
+          role='button'
+        >
+          <Img fluid={data.jsImage.childImageSharp.fluid} />
+        </div>
+        <div
+          onClick={() => setCodeText(react)}
+          onKeyDown={() => setCodeText(react)}
+          role='button'
+        >
+          <Img fluid={data.reactImage.childImageSharp.fluid} />
+        </div>
+        <div
+          onClick={() => setCodeText(gatsby)}
+          onKeyDown={() => setCodeText(gatsby)}
+          role='button'
+        >
+          <Img fluid={data.gatsbyImage.childImageSharp.fluid} />
+        </div>
+        <div
+          onClick={() => setCodeText(node)}
+          onKeyDown={() => setCodeText(node)}
+          role='button'
+        >
+          <Img fluid={data.nodeImage.childImageSharp.fluid} />
+        </div>
+        <div
+          onClick={() => setCodeText(jamstack)}
+          onKeyDown={() => setCodeText(jamstack)}
+          role='button'
+        >
+          <Img fluid={data.jamstackImage.childImageSharp.fluid} />
+        </div>
+        <div
+          onClick={() => setCodeText(netlify)}
+          onKeyDown={() => setCodeText(netlify)}
+          role='button'
+        >
+          <Img fluid={data.netlifyImage.childImageSharp.fluid} />
+        </div>
+      </div>
+    </WhatIDoStyles>
+    <ProjectStyles>
+      <h2 className='projects_heading'>Projects</h2>
+      <ProjectCard />
+    </ProjectStyles>
+    {/* <Inspire>
         <div className='inspire_wrapper'>
           <h2>Stuff That Inspires Me</h2>
           <div className='inspire_image_wrapper'>
@@ -140,7 +143,7 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
       </Inspire> */}
-      <BlogPreview />
+    <BlogPreview />
     </>
   );
 };

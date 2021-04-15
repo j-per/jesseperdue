@@ -54,7 +54,7 @@ const FooterStyles = styled.footer`
   }
   .footerstyles_links_wrapper {
     p {
-      color: var(--grey);
+      color: var(--green);
       text-decoration: underline;
     }
     a {

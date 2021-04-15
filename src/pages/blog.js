@@ -1,11 +1,12 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import BlogCard from '../components/BlogCard';
 import styled from 'styled-components';
 
 const Blog = ({ data }) => {
-  console.log(data.allWpPost);
   return (
+    <>
+    <h1 style={{ margin: `0 0 50px 0` }}>Blog</h1>
     <BlogStyles>
       {data.allWpPost.edges.map((post) => (
         <BlogCard
@@ -18,6 +19,7 @@ const Blog = ({ data }) => {
         />
       ))}
     </BlogStyles>
+    </>
   );
 };
 

@@ -7,15 +7,15 @@ import { BiRightArrowAlt } from 'react-icons/bi';
 const BlogCard = ({ title, excerpt, featuredImage, slug, date }) => {
   return (
     <BlogCardStyles>
-      <Link to={`blog/${slug}`}>
+      <Link to={`/blog/${slug}/`}>
         <h3 className='blogcard_heading'>{title}</h3>
         <BiRightArrowAlt className='blogcard_readmore' size='2em' />
         <div
           className='blogcard_excerpt'
           dangerouslySetInnerHTML={{ __html: excerpt }}
         />
-        <p>{date}</p>
         <Img fluid={featuredImage.childImageSharp.fluid} />
+        <p className='blogcard_date'>{date}</p>
       </Link>
     </BlogCardStyles>
   );
@@ -56,7 +56,14 @@ const BlogCardStyles = styled.article`
     border-radius: 10px;
     width: 100%;
     height: 200px;
-    align-self: flex-end;
+  }
+  .blogcard_date {
+    margin: 0;
+    position:absolute;
+    top: 0.5rem;
+    left: 1rem;
+    font-size: 12px;
+    color: var(--gray);
   }
 `;
 

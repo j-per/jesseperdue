@@ -15,7 +15,7 @@ const Post = ({ data: { wpPost } }) => {
       <h1>{wpPost.title}</h1>
       <p className='poststyles_date'>{wpPost.date}</p>
       <div className='line' />
-      <ContentStyles dangerouslySetInnerHTML={{__html: wpPost.content}} />
+      <ContentStyles dangerouslySetInnerHTML={{ __html: wpPost.content }} />
     </PostStyles>
   );
 };
@@ -72,7 +72,6 @@ const ContentStyles = styled.article`
     margin: 0;
   }
   img {
-    width: 100%;
     border-radius: 10px;
   }
   h2 {
