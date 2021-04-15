@@ -15,7 +15,7 @@ const Overlay = ({ closeMobileMenu }) => {
             <Link to='/blog'>Blog</Link>
           </li>
           <li onClick={closeMobileMenu}>
-            <Link to='/'>Contact</Link>
+            <Link to='/contact'>Contact</Link>
           </li>
         </ul>
       </nav>

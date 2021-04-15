@@ -15,12 +15,23 @@ const Footer = () => {
         <div className='footerstyles_links_wrapper'>
           <p>Links</p>
           <Link to='/blog'>Blog</Link>
-          <a href='https://github.com/j-per' target='_blank' rel='noreferrer'
-          >Github</a>
-          <a href='https://twitter.com/jess90perdue' target='_blank' rel='noreferrer'
-          >Twitter</a>
-          <a href='https://twitter.com/jess90perdue' target='_blank' rel='noreferrer'
-          >Resume</a>
+          <a href='https://github.com/j-per' target='_blank' rel='noreferrer'>
+            Github
+          </a>
+          <a
+            href='https://twitter.com/jess90perdue'
+            target='_blank'
+            rel='noreferrer'
+          >
+            Twitter
+          </a>
+          <a
+            href='https://www.notion.so/Jesse-Perdue-5bfb19bd0b5a4394a9a54759025c44b3'
+            target='_blank'
+            rel='noreferrer'
+          >
+            Resume
+          </a>
         </div>
       </div>
     </FooterStyles>
