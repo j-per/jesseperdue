@@ -5,8 +5,8 @@ const Contact = () => {
   return (
     <>
       <h1 style={{ margin: `0 0 50px 0` }}>Contact</h1>
-      <FormStyles name='Contact Form' method='POST' data-netlify='true'>
-        <input type='hidden' name='form-name' value='Contact Form' />
+      <FormStyles name='Contact' method='POST' data-netlify='true'>
+        <input type='hidden' name='form-name' value='Contact' />
         <p>
           <label>
             Your Name: <br />
