@@ -73,6 +73,7 @@ const ContentStyles = styled.article`
   }
   img {
     border-radius: 10px;
+    max-width: 100%;
   }
   h2 {
     color: var(--purple);
