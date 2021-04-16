@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <>
       <h1 style={{ margin: `0 0 50px 0` }}>Contact</h1>
-      <form
+      <FormStyles
         name='Contact'
         method='POST'
         data-netlify='true'
@@ -33,7 +33,7 @@ const Contact = () => {
         <p>
           <button type='submit'>Send</button>
         </p>
-      </form>
+      </FormStyles>
     </>
   );
 };
