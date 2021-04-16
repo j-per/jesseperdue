@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Overlay from './overlay';
+import Overlay from './Overlay';
 import { CgMenuGridO } from 'react-icons/cg';
 import gsap from 'gsap';
 
@@ -21,28 +21,28 @@ const Navigation = () => {
 
   return (
     <>
-    <DesktopNavStyles className='navigation_desktop '>
-      <h2>
-        <Link to='/'>Jesse Perdue</Link>
-      </h2>
-      <ul>
-        <li>
-          <Link to='/blog'>Blog</Link>
-        </li>
-        <li>
-          <Link to='/contact'>Contact</Link>
-        </li>
-      </ul>
-    </DesktopNavStyles>
-    <MobileNavStyles>
-      {click && <Overlay closeMobileMenu={closeMobileMenu} />}
-      <h2>
-        <Link to='/'>Jesse Perdue</Link>
-      </h2>
-      <nav>
-        <CgMenuGridO onClick={handleClick} size='2em' color='white' />
-      </nav>
-    </MobileNavStyles>
+      <DesktopNavStyles className='navigation_desktop '>
+        <h2>
+          <Link to='/'>Jesse Perdue</Link>
+        </h2>
+        <ul>
+          <li>
+            <Link to='/blog'>Blog</Link>
+          </li>
+          <li>
+            <Link to='/contact'>Contact</Link>
+          </li>
+        </ul>
+      </DesktopNavStyles>
+      <MobileNavStyles>
+        {click && <Overlay closeMobileMenu={closeMobileMenu} />}
+        <h2>
+          <Link to='/'>Jesse Perdue</Link>
+        </h2>
+        <nav>
+          <CgMenuGridO onClick={handleClick} size='2em' color='white' />
+        </nav>
+      </MobileNavStyles>
     </>
   );
 };
