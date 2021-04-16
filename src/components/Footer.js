@@ -19,7 +19,7 @@ const Footer = () => {
             Github
           </a>
           <a
-            href='https://twitter.com/jess90perdue'
+            href='https://twitter.com/jesse90perdue'
             target='_blank'
             rel='noreferrer'
           >
