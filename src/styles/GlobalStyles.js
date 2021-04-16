@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
     body {
         background-color: #0E141B;
         color: white;
+        line-height: 1.5;
     }
     a {
         text-decoration: none;
