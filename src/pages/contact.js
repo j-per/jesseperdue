@@ -6,27 +6,28 @@ const Contact = () => {
     <>
       <h1 style={{ margin: `0 0 50px 0` }}>Contact</h1>
       <FormStyles name='contact' method='POST' data-netlify='true'>
-        <div>
+        <input type='hidden' name='form-name' value='contact' />
+        <p>
           <label>
             Your Name: <br />
-            <input type='text' name='name' />
+            <input type='text' name='form-name' />
           </label>
-        </div>
-        <div>
+        </p>
+        <p>
           <label>
             Your Email: <br />
             <input type='email' name='email' />
           </label>
-        </div>
-        <div>
+        </p>
+        <p>
           <label>
             Message: <br />
             <textarea name='message'></textarea>
           </label>
-        </div>
-        <div>
+        </p>
+        <p>
           <button type='submit'>Send</button>
-        </div>
+        </p>
       </FormStyles>
     </>
   );
